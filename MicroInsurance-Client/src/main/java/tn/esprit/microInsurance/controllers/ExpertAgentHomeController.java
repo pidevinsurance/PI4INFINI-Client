@@ -226,9 +226,7 @@ public class ExpertAgentHomeController implements Initializable{
             	
             	//listSinisterRequests.getItems().clear();
             	
-      
-            	
-            	
+     
        	
                 event.consume();
             }
