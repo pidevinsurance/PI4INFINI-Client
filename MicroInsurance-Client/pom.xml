@@ -52,6 +52,14 @@
 			<version>1.0</version>
 			<type>ejb</type>
 		</dependency>
+		
+		<dependency>
+			
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.10.Final</version>
+		
+		</dependency>
 
 	</dependencies>
 </project>
