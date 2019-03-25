@@ -2,6 +2,7 @@ package tn.esprit.microInsurance.controllers;
 
 
 
+import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -9,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -18,7 +21,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -26,7 +33,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import tn.esprit.microinsurance.Entities.Indemnity_Request;
 import tn.esprit.microinsurance.Entities.Sinister;
@@ -61,7 +71,7 @@ public class ExpertAgentHomeController implements Initializable{
 	    private Button btnSettings;
 
 	    @FXML
-	    private Button btnSignout;
+	    private Button btnExit;
 	    
 	    @FXML
 	    private Label lblTodaysRequest;
@@ -148,6 +158,9 @@ public class ExpertAgentHomeController implements Initializable{
         	          System.out.println(currentItemSelected);
         	          System.out.println(i.getIndemnityRequest_id());
         	           //use this to do whatever you want to. Open Link etc.
+        	          
+        	         
+        	          
         	        }
         	    }
         	});
@@ -286,7 +299,14 @@ public class ExpertAgentHomeController implements Initializable{
         	          System.out.println(currentItemSelected);
         	          System.out.println(i.getIndemnityRequest_id());
         	           //use this to do whatever you want to. Open Link etc.
-        	        }
+        	          
+        	         
+
+        	              
+        	          }
+        	          
+        	          
+        	        
         	    }
         	});
     		
@@ -343,6 +363,21 @@ public class ExpertAgentHomeController implements Initializable{
         	          System.out.println(currentItemSelected);
         	          System.out.println(i.getIndemnityRequest_id());
         	           //use this to do whatever you want to. Open Link etc.
+        	          
+        	          try {
+            	  			Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/microInsurance/views/AffectTechnicalAgentView.fxml"));
+            	  			// BorderPane root = new BorderPane();
+            	  			Scene scene = new Scene(root, 480, 223);
+            	  			scene.setFill(Color.TRANSPARENT);
+            	  			Stage secondStage = new Stage();
+            	  			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+            	  			secondStage.setScene(scene);
+            	  			secondStage.initStyle(StageStyle.UNDECORATED);
+            	  			secondStage.show();
+            	  		} catch (Exception e) {
+            	  			e.printStackTrace();
+            	  		}
+        	          
         	        }
         	    }
         	});
@@ -354,24 +389,19 @@ public class ExpertAgentHomeController implements Initializable{
 
     }
     
-    
-    
-    
-    
-    
-    
-    
+    @FXML
+    void ExitTheApp(ActionEvent event) {
+    	
+    	Stage stage;
+        stage=(Stage) btnExit.getScene().getWindow();
+    	stage.close();
 
-
-	
-	
-
-
-
-	
-	
-	 
-	 
+    }
     
+    
+    
+    
+    
+   
 
 }
