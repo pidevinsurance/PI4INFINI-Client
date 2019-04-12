@@ -12,7 +12,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/microInsurance/views/ExpertAgentHomeView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/microInsurance/views/QuotesView.fxml"));
 			// BorderPane root = new BorderPane();
 			Scene scene = new Scene(root, 1056, 613);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

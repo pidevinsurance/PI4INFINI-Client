@@ -3,25 +3,25 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="613.0" prefWidth="1056.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.microInsurance.controllers.ExpertAgentHomeController">
+<AnchorPane prefHeight="613.0" prefWidth="1056.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.microInsurance.controllers.TreatedController">
    <children>
-      <AnchorPane prefHeight="613.0" prefWidth="252.0" style="-fx-background-color: #05071F;">
+      <AnchorPane fx:id="objet" prefHeight="613.0" prefWidth="252.0" style="-fx-background-color: #05071F;">
          <children>
             <ImageView fitHeight="73.0" fitWidth="67.0" layoutX="101.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../../tn/esprit/microInsurance/images/jimmy-fallon.png" />
                </image>
             </ImageView>
-            <Label layoutX="100.0" layoutY="128.0" text="Chebbi Khaled" textFill="#e7e5e5" />
+            <Label layoutX="100.0" layoutY="128.0" text="USER" textFill="#e7e5e5" />
             <Button fx:id="btnOverview" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="9.0" layoutY="199.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../../tn/esprit/microInsurance/styles/style.css" text="Overview" textFill="#e7e5e5">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
@@ -97,7 +97,19 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="9.0" layoutY="451.0" mnemonicParsing="false" onAction="#ExitTheApp" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../../tn/esprit/microInsurance/styles/style.css" text="Exit">
+            <Button fx:id="btnExit" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="9.0" layoutY="451.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../../tn/esprit/microInsurance/styles/style.css" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../tn/esprit/microInsurance/images/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btnExit1" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="19.0" layoutY="461.0" mnemonicParsing="false" onAction="#ExitTheApp" prefHeight="42.0" prefWidth="259.0" stylesheets="@../../../../tn/esprit/microInsurance/styles/style.css" text="Exit">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -111,94 +123,49 @@
             </Button>
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER_LEFT" layoutX="332.0" layoutY="67.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+      <HBox alignment="CENTER_LEFT" layoutX="543.0" layoutY="67.0" prefHeight="92.0" prefWidth="285.0" spacing="50.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="lblTodaysRequest" text="22000" textFill="#2a73ff">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <Label text="Today's Request" textFill="#e7e5e5" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="lblTotalRequests" text="1500" textFill="#26bfbc">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <Label text="Total Requests" textFill="#e7e5e5" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="lblTreatedRequests" text="1000" textFill="#fa5f7e">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <Label text="Treated" textFill="#e7e5e5" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="lblUntratedRequests" text="780" textFill="#de0000">
-                     <font>
-                        <Font name="System Bold" size="26.0" />
-                     </font>
-                  </Label>
-                  <Label text="Untreated" textFill="#e7e5e5" />
-               </children></VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
          </children>
       </HBox>
-      <TextField fx:id="txtSearch" layoutX="841.0" layoutY="40.0" prefHeight="27.0" prefWidth="183.0" promptText="search" style="-fx-background-color: #02030A; -fx-border-color: #B7C3D7; -fx-border-radius: 2em;" />
       <ImageView fx:id="imgSearch" fitHeight="17.0" fitWidth="16.0" layoutX="1000.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../tn/esprit/microInsurance/images/icons8_Search_52px.png" />
          </image>
       </ImageView>
-      <ListView fx:id="listSinisterRequests" fixedCellSize="-3.0" layoutX="314.0" layoutY="243.0" opacity="0.74" prefHeight="324.0" prefWidth="712.0" />
-      <AnchorPane layoutX="324.0" layoutY="205.0" prefHeight="38.0" prefWidth="661.0" style="-fx-background-color: #02030A;">
-         <children>
-            <Label layoutX="9.0" layoutY="9.0" text="Customer" textFill="#e7e5e5">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="106.0" layoutY="9.0" text="Reporting Date" textFill="#e7e5e5">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="245.0" layoutY="9.0" text="Description" textFill="#e7e5e5">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="432.0" layoutY="9.0" text="Email" textFill="#e7e5e5">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-            <Label layoutX="557.0" layoutY="11.0" text="Phone Number" textFill="#e7e5e5">
-               <font>
-                  <Font name="Arial" size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Button fx:id="btnTreated" layoutX="558.0" layoutY="571.0" mnemonicParsing="false" onAction="#GetTreatedRequests" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: #a41a1a;" text="Treated" textFill="#dd7777">
-         <font>
-            <Font name="Times New Roman" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="btnUntreated" layoutX="675.0" layoutY="571.0" mnemonicParsing="false" onAction="#GetUntreatedRequests" prefHeight="37.0" prefWidth="107.0" style="-fx-background-color: #a41a1a;" text="Untreated" textFill="#dd7777">
-         <font>
-            <Font name="Times New Roman" size="20.0" />
-         </font>
+      <AnchorPane layoutX="324.0" layoutY="205.0" prefHeight="38.0" prefWidth="661.0" style="-fx-background-color: #02030A;" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Label contentDisplay="CENTER" graphicTextGap="10.0" layoutX="585.0" layoutY="159.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="183.0" text="Treated Quotation Requests" textFill="#791010" textOverrun="CLIP" underline="true">
+         <opaqueInsets>
+            <Insets bottom="23.0" left="23.0" right="23.0" top="23.0" />
+         </opaqueInsets>
+      </Label>
+      <TableView fx:id="TableViewQuote" layoutX="340.0" layoutY="267.0" prefHeight="196.0" prefWidth="610.0">
+         <columns>
+            <TableColumn fx:id="name" prefWidth="121.0" text="Name" />
+            <TableColumn fx:id="surname" prefWidth="75.0" text="SURNAME" />
+            <TableColumn fx:id="insurance_type" prefWidth="137.0" text="INSURANCE_TYPE" />
+            <TableColumn minWidth="0.0" prefWidth="1.0" text="Column X" />
+            <TableColumn fx:id="insurance_product" prefWidth="159.0" text="INSURANCE PRODUCT" />
+            <TableColumn fx:id="phone_number" prefWidth="116.0" text="PHONE NUMBER" />
+         </columns>
+      </TableView>
+      <Button fx:id="Return" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="14.0" layoutY="513.0" mnemonicParsing="false" onAction="#Return" prefHeight="42.0" prefWidth="259.0" stylesheets="@../styles/style.css" text="Return">
+         <graphic>
+            <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+               <image>
+                  <Image url="@../images/icons8_Sign_Out_32px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
       </Button>
    </children>
 </AnchorPane>
